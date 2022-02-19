@@ -1,0 +1,58 @@
+<div class="container" style="min-width: 900px;">
+    <div class="row">
+      <div class="col-md-12 mt-4">
+        <h1 class="text-center">Customer List</h1>
+        <table class="table table-bordered table-striped table-hover" style="text-align: center;">
+          <thead>
+            <tr>
+              <th class="text-center">Name</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Phone Number</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{ customer.name }}</td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.address }}</td>
+              <td>{{ customer.phoneNumber }}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm mr-2" style="margin-right: 5px;" (click)="showEditCustomerForm(customer)">Edit</button>
+  
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeCustomer(customer)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success" (click)="showAddCustomerForm()">Add New Customer</button>
+  
+        <div class="mt-4">
+          <form *ngIf="customerForm">
+            <h2>Add New Customer</h2>
+            <p>Name: <input matInput type="text" name="name" [(ngModel)]="newCustomer.name" /> </p>
+            <p>Email: <input matInput type="email" name="email" [(ngModel)]="newCustomer.email" email=true/></p>
+            <p>Address: <input matInput type="text" name="address" [(ngModel)]="newCustomer.address" /></p>
+            <p>Phone Number: <input matInput type="number" name="phoneNumber" [(ngModel)]="newCustomer.phoneNumber" /></p>
+            <p>
+              <button type="submit" class="btn btn-primary mr-2" (click)="saveCustomer()">Submit</button>
+              <button type="submit" class="btn btn-warning" (click)="cancelNewCustomer()">Cancel</button>
+            </p>
+          </form>
+  
+          <form *ngIf="editCustomerForm">
+            <h2>Edit Customer Details</h2>
+            <p>Name: <input matInput type="text" name="name" [(ngModel)]="editedCustomer.name" /> </p>
+            <p>Email: <input matInput type="email" name="email" [(ngModel)]="editedCustomer.email" /> </p>
+            <p>Address: <input matInput type="text" name="address" [(ngModel)]="editedCustomer.address" />  </p>
+            <p>Phone Number: <input matInput type="number" name="phoneNumber" [(ngModel)]="editedCustomer.phoneNumber" /> </p>
+            <p>
+              <button type="submit" class="btn btn-primary mr-2" (click)="updateCustomer()">Submit</button>
+              <button type="submit" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -4,16 +4,20 @@ const Schema = mongoose.Schema;
 // Define collection and schema
 let Customers = new Schema({
    name: {
-      type: String
+      type: String,
+      required: true
    },
    email: {
-      type: String
+      type: String,
+      required: true
    },
    address: {
-      type: String
+      type: String,
+      required: true
    },
    phoneNumber: {
-      type: Number
+      type: Number,
+      required: true
    }
 }, {
    collection: 'customers'

@@ -1,6 +1,6 @@
 let express = require('express');
 let mongoose = require('mongoose');
-// let cors = require('cors');
+let cors = require('cors');
 let bodyParser = require('body-parser');
 let dbConfig = require('./config/db');
 
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
    extended: false
 }));
-// app.use(cors()); 
+app.use(cors()); 
 
 const customersRoutes = require('./routes/customers.routes')
 app.use('/api', customersRoutes);
