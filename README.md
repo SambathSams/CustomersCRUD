@@ -9,7 +9,11 @@
         }```
 
 * **Backend Setup**
-    * ```npm install``` && ```node server``` will start the backend
+    * Go to backend folder.
+    * Run ```npm install``` && ```node server```
+    * It will start the backend at ```http://localhost:8080```
 
 * **Angular Setup**
-    * ```npm install``` && ```ng serve``` will start the frontend at ```http://localhost:4200```
+    * Go to frontend folder.
+    * Run ```npm install``` && ```ng serve```
+    * It will start the frontend at ```http://localhost:4200```
